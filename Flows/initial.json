@@ -1,0 +1,754 @@
+[
+    {
+        "id": "12c788cb1ab46b8a",
+        "type": "tab",
+        "label": "INIT_ROBOT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "af2675fc7274a20b",
+        "type": "matrix-robot-cancel-flow",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3b2fd0995cb6f247",
+        "type": "inject",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "af2675fc7274a20b"
+            ]
+        ]
+    },
+    {
+        "id": "6664cc4c24c0d333",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "set \"battery_External\"",
+        "func": "\nsoc = msg.payload.SOC;\nmsg.payload = soc\nglobal.set(\"battery_External\",soc)\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ffe8fc7591fdb0c",
+        "type": "inject",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 190,
+        "y": 1000,
+        "wires": [
+            [
+                "ea4b7de4473a8025"
+            ]
+        ]
+    },
+    {
+        "id": "ea4b7de4473a8025",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "check <20 % AMR battery",
+        "func": "soc_mobile = global.get(\"battery_mobile\");\ncharge_state = global.get(\"charge_state\")\nmsg.payload = soc_mobile;\nif (soc_mobile <20){\n    if(charge_state == false){\n        return [msg,null];\n    }\n    else{\n        return [null,msg];\n    }\n}\nelse {\n    return [null,msg];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1000,
+        "wires": [
+            [
+                "a7c0342b514191ae",
+                "f82180e2b8b1954f",
+                "c5c4b0b0d33e02b7"
+            ],
+            [
+                "c5c4b0b0d33e02b7"
+            ]
+        ]
+    },
+    {
+        "id": "f82180e2b8b1954f",
+        "type": "debug",
+        "z": "12c788cb1ab46b8a",
+        "name": "check AMR %SOC",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "a7c0342b514191ae",
+        "type": "matrix-robot-music",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "music_id": "28",
+        "mode": 0,
+        "cmd": "play",
+        "loop": 0,
+        "x": 720,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "c5c4b0b0d33e02b7",
+        "type": "delay",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 1000,
+        "wires": [
+            [
+                "ea4b7de4473a8025"
+            ]
+        ]
+    },
+    {
+        "id": "6177a5f03c484e71",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "set \"battery_Mobile\"",
+        "func": "\nglobal.set(\"battery_mobile\",msg.payload.SOC)\nglobal.set(\"charge_state\",msg.payload.is_charging)\nglobal.set(\"voltage\",msg.payload.Voltage)\nglobal.set(\"current\",msg.payload.Current)\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 260,
+        "wires": [
+            [
+                "f5274e75eff280bb"
+            ]
+        ]
+    },
+    {
+        "id": "73349321f7122b39",
+        "type": "inject",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 560,
+        "y": 940,
+        "wires": [
+            [
+                "a7c0342b514191ae"
+            ]
+        ]
+    },
+    {
+        "id": "3130ae555dd8b3cd",
+        "type": "matrix-robot-battery-mobile",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "statusR": 0,
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "6177a5f03c484e71"
+            ]
+        ]
+    },
+    {
+        "id": "617e22375dc533d6",
+        "type": "inject",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "969ada05d04a724f",
+                "3130ae555dd8b3cd",
+                "b319a0ce393a19e8",
+                "c55a754a4b753f13",
+                "6a7f548a32f01acd",
+                "27b005ea1d26ab07",
+                "3165b1fd97d9cf07",
+                "5c1cfa97972c3e1e"
+            ]
+        ]
+    },
+    {
+        "id": "969ada05d04a724f",
+        "type": "matrix-robot-cmd-vel",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "statusR": 0,
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "2d1b51b83654c94c"
+            ]
+        ]
+    },
+    {
+        "id": "0c709f5ff6a8b258",
+        "type": "debug",
+        "z": "12c788cb1ab46b8a",
+        "name": "CMD ",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2d1b51b83654c94c",
+        "type": "delay",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "d8bc105e221fa5ee",
+                "cdbdf51d1638d56d"
+            ]
+        ]
+    },
+    {
+        "id": "d8bc105e221fa5ee",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "set \"CMD\"",
+        "func": "\nglobal.set(\"linear\",msg.payload.linear)\nglobal.set(\"angular\",msg.payload.angular)\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 200,
+        "wires": [
+            [
+                "0c709f5ff6a8b258"
+            ]
+        ]
+    },
+    {
+        "id": "cdbdf51d1638d56d",
+        "type": "change",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "num",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 140,
+        "wires": [
+            [
+                "4e085eecb503fac8"
+            ]
+        ]
+    },
+    {
+        "id": "f5274e75eff280bb",
+        "type": "debug",
+        "z": "12c788cb1ab46b8a",
+        "name": "CMD ",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4e085eecb503fac8",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "set dummy data",
+        "func": "num = flow.get(\"num\")\nmsg.payload = num\nif (num >2){\n    return [msg,msg];\n}\nelse{\n    num  = num+1\n    flow.set(\"num\",num)\n    return [null,msg];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 100,
+        "wires": [
+            [
+                "54128c35b11affed"
+            ],
+            [
+                "570662120c9f9064"
+            ]
+        ]
+    },
+    {
+        "id": "570662120c9f9064",
+        "type": "delay",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 990,
+        "y": 140,
+        "wires": [
+            [
+                "4e085eecb503fac8"
+            ]
+        ]
+    },
+    {
+        "id": "54128c35b11affed",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "set \"CMD\" dummy",
+        "func": "global.set(\"linear\",0.0)\nglobal.set(\"angular\",0.0)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb2d9b92e55dc3a7",
+        "type": "inject",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 640,
+        "y": 80,
+        "wires": [
+            [
+                "cdbdf51d1638d56d"
+            ]
+        ]
+    },
+    {
+        "id": "e3b95514555338d4",
+        "type": "debug",
+        "z": "12c788cb1ab46b8a",
+        "name": "POSE",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a4fa6284aeca44b2",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "Global Pose",
+        "func": "positionX = msg.payload.Pose.position.x;\npositionY = msg.payload.Pose.position.y;\norientationZ = msg.payload.Pose.orientation.z;\norientationW = msg.payload.Pose.orientation.w;\n\nglobal.set(\"position_x\",positionX )\nglobal.set(\"position_y\",positionY )\nglobal.set(\"orientation_Z\",orientationZ )\nglobal.set(\"orientation_W\",orientationW)\n// msg.payload ={\"position x\": dataX,\n//                 \"postion Y\":dataY}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 380,
+        "wires": [
+            [
+                "e3b95514555338d4"
+            ]
+        ]
+    },
+    {
+        "id": "c55a754a4b753f13",
+        "type": "matrix-robot-sub-pose",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "statusR": 0,
+        "x": 410,
+        "y": 380,
+        "wires": [
+            [
+                "a4fa6284aeca44b2"
+            ]
+        ]
+    },
+    {
+        "id": "b319a0ce393a19e8",
+        "type": "matrix-robot-battery-arm",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "statusR": 0,
+        "x": 410,
+        "y": 320,
+        "wires": [
+            [
+                "6664cc4c24c0d333"
+            ]
+        ]
+    },
+    {
+        "id": "365123725ba07a16",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "set \"POI name\"",
+        "func": "\nPOI = msg.payload.POI;\nmsg.payload = POI\nglobal.set(\"POI_name\",POI)\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a7f548a32f01acd",
+        "type": "matrix-robot-on-poi",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "statusR": 0,
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "365123725ba07a16"
+            ]
+        ]
+    },
+    {
+        "id": "b816890b5f7bc929",
+        "type": "debug",
+        "z": "12c788cb1ab46b8a",
+        "name": "mode",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "47720cede05e029c",
+        "type": "function",
+        "z": "12c788cb1ab46b8a",
+        "name": "set \"POI name\"",
+        "func": "\nstatus = msg.payload.Status;\nmsg.payload = status\nif (status == 2){\n  global.set(\"Robot_mode\",\"Robot_ready\")  \n}\nelse if(status == 14){\n    global.set(\"Robot_mode\",\"device_error\")\n}\nelse{\n    global.set(\"Robot_mode\",\"wait_ready\")\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 520,
+        "wires": [
+            [
+                "b816890b5f7bc929"
+            ]
+        ]
+    },
+    {
+        "id": "3165b1fd97d9cf07",
+        "type": "matrix-robot-volume",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "volume": "50",
+        "cmd": "set",
+        "x": 400,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "acd5e32bdee7a2a3",
+        "type": "inject",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "Restart Flow",
+        "payloadType": "str",
+        "x": 150,
+        "y": 40,
+        "wires": [
+            [
+                "e28ed47506822bfd"
+            ]
+        ]
+    },
+    {
+        "id": "e28ed47506822bfd",
+        "type": "debug",
+        "z": "12c788cb1ab46b8a",
+        "name": "Restart Check",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "91c4f74b5a50dc4b",
+        "type": "switch",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "property": "payload.status",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 610,
+        "y": 600,
+        "wires": [
+            [
+                "53e666141bfc12b5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "53e666141bfc12b5",
+        "type": "matrix-robot-music",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "music_id": "38",
+        "mode": 0,
+        "cmd": "play",
+        "loop": 0,
+        "x": 800,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "27b005ea1d26ab07",
+        "type": "matrix-robot-sub-movestate",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "statusR": 0,
+        "x": 410,
+        "y": 600,
+        "wires": [
+            [
+                "91c4f74b5a50dc4b"
+            ]
+        ]
+    },
+    {
+        "id": "5c1cfa97972c3e1e",
+        "type": "matrix-robot-sub-robotmode",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "statusR": 0,
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "47720cede05e029c"
+            ]
+        ]
+    },
+    {
+        "id": "b4d4b642d5223eb0",
+        "type": "matrix-robot-move-offline",
+        "z": "12c788cb1ab46b8a",
+        "matrix": "e742c75e38638836",
+        "modeoffmove": "Rotate Left",
+        "vel": 0.2,
+        "travdis": 0.5,
+        "degree": 90,
+        "x": 350,
+        "y": 1140,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f5979cc042cda5d5",
+        "type": "inject",
+        "z": "12c788cb1ab46b8a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 1160,
+        "wires": [
+            [
+                "b4d4b642d5223eb0"
+            ]
+        ]
+    },
+    {
+        "id": "e742c75e38638836",
+        "type": "matrix-robot-ros"
+    }
+]
