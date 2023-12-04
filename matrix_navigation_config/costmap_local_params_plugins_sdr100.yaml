@@ -1,0 +1,8 @@
+local_costmap:
+    plugins:
+        - {name: ist_costmap_prohibition_layer, type: "costmap_prohibition_layer_namespace::CostmapProhibitionLayer"}
+        - {name: rgbd_obstacle_layer,     type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
+        - {name: laser_layer_temp,     type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
+        # - {name: sonar_layer, type: "range_sensor_layer::RangeSensorLayer"}
+        # - {name: cliff_layer, type: "costmap_2d::ObstacleLayer"}
+        - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}

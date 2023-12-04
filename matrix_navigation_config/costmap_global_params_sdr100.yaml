@@ -1,0 +1,21 @@
+global_costmap:
+    # footprint_model:
+    #   type:  "circular" 
+    #   radius: 0.23
+    # footprint: [[-0.55,-0.3],[-0.55,0.3],[0.425,0.3],[0.425,-0.3]]
+    global_frame: map
+    static_map: true
+    update_frequency: 5.0
+    publish_frequency: 0.1
+    raytrace_range: 2.0
+    resolution: 0.05
+    z_resolution: 0.2
+    z_voxels: 10
+
+    footprint_padding: 0.00 
+
+    inflation_layer:
+      enabled:              true
+      inflation_radius:     1.0
+      cost_scaling_factor:  10.0
+    
