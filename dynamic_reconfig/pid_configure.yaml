@@ -1,0 +1,21 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  d: 1.0
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      d: 1.0
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      i: 0.05
+      id: 0
+      name: Default
+      p: 1.5
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      state: true
+      type: ''
+    state: []
+  i: 0.05
+  p: 1.5
+state: []

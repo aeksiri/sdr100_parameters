@@ -1,0 +1,72 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  global_2d_obstacle: false
+  global_3d_obstacle: true
+  global_ist_prohibition: false
+  global_static_map: false
+  global_ultrasonic: false
+  green_zone_vel: 1.2
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        dictitems:
+          nav_layer: !!python/object/new:dynamic_reconfigure.encoding.Config
+            dictitems:
+              global_2d_obstacle: false
+              global_3d_obstacle: true
+              global_ist_prohibition: false
+              global_static_map: false
+              global_ultrasonic: false
+              groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+                state: []
+              id: 2
+              local_2d_obstacle: false
+              local_3d_obstacle: false
+              local_ist_prohibition: false
+              local_seem_global_layer: false
+              local_static_map: false
+              local_ultrasonic: false
+              name: nav_layer
+              parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+                state: []
+              parent: 0
+              state: true
+              type: ''
+            state: []
+          zone_velocity: !!python/object/new:dynamic_reconfigure.encoding.Config
+            dictitems:
+              green_zone_vel: 1.2
+              groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+                state: []
+              id: 1
+              name: zone_velocity
+              no_zone_vel: 0.7
+              orange_zone_vel: 0.2
+              parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+                state: []
+              parent: 0
+              room_zone_vel: 0.5
+              state: true
+              type: ''
+              yellow_zone_vel: 0.4
+            state: []
+        state: []
+      id: 0
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      state: true
+      type: ''
+    state: []
+  local_2d_obstacle: false
+  local_3d_obstacle: false
+  local_ist_prohibition: false
+  local_seem_global_layer: false
+  local_static_map: false
+  local_ultrasonic: false
+  no_zone_vel: 0.7
+  orange_zone_vel: 0.2
+  room_zone_vel: 0.5
+  yellow_zone_vel: 0.4
+state: []

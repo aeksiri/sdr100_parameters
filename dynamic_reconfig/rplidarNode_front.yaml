@@ -1,0 +1,51 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  crop_range: 0.3
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      crop_range: 0.3
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      restore_default: false
+      scan_range_crop: false
+      scan_sector_crop: true
+      scan_sector_crop2: true
+      scan_sector_crop3: true
+      scan_sector_crop4: true
+      scan_sector_crop5: false
+      start_trim_degree: 37
+      start_trim_degree2: 130
+      start_trim_degree3: 215
+      start_trim_degree4: 310
+      start_trim_degree5: 120
+      state: true
+      stop_trim_degree: 49
+      stop_trim_degree2: 145
+      stop_trim_degree3: 230
+      stop_trim_degree4: 320
+      stop_trim_degree5: 235
+      type: ''
+    state: []
+  restore_default: false
+  scan_range_crop: false
+  scan_sector_crop: true
+  scan_sector_crop2: true
+  scan_sector_crop3: true
+  scan_sector_crop4: true
+  scan_sector_crop5: false
+  start_trim_degree: 37
+  start_trim_degree2: 130
+  start_trim_degree3: 215
+  start_trim_degree4: 310
+  start_trim_degree5: 120
+  stop_trim_degree: 49
+  stop_trim_degree2: 145
+  stop_trim_degree3: 230
+  stop_trim_degree4: 320
+  stop_trim_degree5: 235
+state: []

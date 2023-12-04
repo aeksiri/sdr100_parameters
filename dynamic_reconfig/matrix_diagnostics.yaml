@@ -1,0 +1,55 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  check_bms_base: true
+  check_bms_plugin: false
+  check_cam1: false
+  check_cam2: false
+  check_cam3: false
+  check_camrear: false
+  check_imu: true
+  check_ldsf: true
+  check_ldsr: false
+  check_mcu1: true
+  check_mcu2: true
+  check_motor: false
+  check_wireless485: false
+  check_xbee: false
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      check_bms_base: true
+      check_bms_plugin: false
+      check_cam1: false
+      check_cam2: false
+      check_cam3: false
+      check_camrear: false
+      check_imu: true
+      check_ldsf: true
+      check_ldsr: false
+      check_mcu1: true
+      check_mcu2: true
+      check_motor: false
+      check_wireless485: false
+      check_xbee: false
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      state: true
+      timeout_error_device: 5
+      timeout_error_system: 15
+      timeout_full_charge_shutdown: 600
+      timeout_noaction_shutdown: 10800
+      type: ''
+      use_automatic_shutdown: true
+      use_diagnostics: true
+    state: []
+  timeout_error_device: 5
+  timeout_error_system: 15
+  timeout_full_charge_shutdown: 600
+  timeout_noaction_shutdown: 10800
+  use_automatic_shutdown: true
+  use_diagnostics: true
+state: []

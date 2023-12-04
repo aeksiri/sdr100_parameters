@@ -1,0 +1,31 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  emergency_base_active_value: 0
+  emergency_charge_active_value: 0
+  emergency_plugin_active_value: -1
+  enable_emergency_charge_state: true
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      emergency_base_active_value: 0
+      emergency_charge_active_value: 0
+      emergency_plugin_active_value: -1
+      enable_emergency_charge_state: true
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      permissive_bumper_detect: true
+      robot_mode: 0
+      state: true
+      stop_all: false
+      stop_movement: false
+      type: ''
+    state: []
+  permissive_bumper_detect: true
+  robot_mode: 0
+  stop_all: false
+  stop_movement: false
+state: []

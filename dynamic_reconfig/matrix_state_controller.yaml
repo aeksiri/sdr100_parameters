@@ -1,0 +1,25 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      pause_mode_detect: PAUSE
+      resume_dock_time: 2.0
+      resume_mode_detect: RESUME
+      state: true
+      trigger_pause: false
+      trigger_resume: false
+      type: ''
+    state: []
+  pause_mode_detect: PAUSE
+  resume_dock_time: 2.0
+  resume_mode_detect: RESUME
+  trigger_pause: false
+  trigger_resume: false
+state: []

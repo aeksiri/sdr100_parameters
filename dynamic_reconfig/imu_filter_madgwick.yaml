@@ -1,0 +1,27 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  gain: 0.1
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      gain: 0.1
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      mag_bias_x: 0.0
+      mag_bias_y: 0.0
+      mag_bias_z: 0.0
+      name: Default
+      orientation_stddev: 0.05
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      state: true
+      type: ''
+      zeta: 0.0
+    state: []
+  mag_bias_x: 0.0
+  mag_bias_y: 0.0
+  mag_bias_z: 0.0
+  orientation_stddev: 0.05
+  zeta: 0.0
+state: []

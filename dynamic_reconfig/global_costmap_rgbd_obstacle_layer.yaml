@@ -1,0 +1,37 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  combination_method: 1
+  decay_model: 0
+  enabled: true
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      combination_method: 1
+      decay_model: 0
+      enabled: true
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      map_save_duration: 60.0
+      mapping_mode: false
+      mark_threshold: 3.5
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      publish_voxel_map: false
+      state: true
+      track_unknown_space: true
+      type: ''
+      update_footprint_enabled: true
+      voxel_decay: 2.5
+      voxel_size: 0.05
+    state: []
+  map_save_duration: 60.0
+  mapping_mode: false
+  mark_threshold: 3.5
+  publish_voxel_map: false
+  track_unknown_space: true
+  update_footprint_enabled: true
+  voxel_decay: 2.5
+  voxel_size: 0.05
+state: []

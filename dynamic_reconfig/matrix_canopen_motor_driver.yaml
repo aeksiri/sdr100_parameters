@@ -1,0 +1,31 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  accel_time: 100
+  decel_time: 100
+  free_mode: false
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      accel_time: 100
+      decel_time: 100
+      free_mode: false
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      manual_mode: false
+      manual_trigger_disabled_motor: false
+      manual_trigger_init_motor: false
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      restart_motor: false
+      shaft_lock: false
+      state: true
+      type: ''
+    state: []
+  manual_mode: false
+  manual_trigger_disabled_motor: false
+  manual_trigger_init_motor: false
+  restart_motor: false
+  shaft_lock: false
+state: []

@@ -1,0 +1,29 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      manual_matrixflow_setup: 0
+      matrixflow_cancel_all: 3
+      matrixflow_cancel_movement: 0
+      matrixflow_emergency: 2
+      matrixflow_ready: 1
+      matrixflow_start_motor: 1
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      restore_default: false
+      state: true
+      type: ''
+    state: []
+  manual_matrixflow_setup: 0
+  matrixflow_cancel_all: 3
+  matrixflow_cancel_movement: 0
+  matrixflow_emergency: 2
+  matrixflow_ready: 1
+  matrixflow_start_motor: 1
+  restore_default: false
+state: []
